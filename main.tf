@@ -1,5 +1,5 @@
 resource "aws_vpc" "varma_vpc" {
-  cidr_block       = var.cidr
+  cidr_block       = "192.168.0.0/16"
 
   tags = {
     Name = "Varma"
@@ -8,7 +8,7 @@ resource "aws_vpc" "varma_vpc" {
 
 resource "aws_subnet" "varma-pub-subnet" {
   vpc_id     = aws_vpc.varma_vpc.id
-  cidr_block = var.subnet-cidr
+  cidr_block = "192.168.1.0/24"
   availability_zone       = "eu-west-2a"
   map_public_ip_on_launch = true
 
